@@ -17,16 +17,23 @@ Begin in the section for Network Access in Access >> Connectivity / VPN.  All se
 
 1.	Create a new IPv4 lease pool to assign to Network Access clients by selecting IPv4 Lease Pools from the Network Access (VPN) menu.  
 1.	Name your lease pool LeasePool_NetAccess
-2.	The range of IPs used should not exist anywhere else in the network because they will be assigned to users.  For this activity everone can use: 10.30.1.2-10.30.2.50 as SNAT must be enabled so this range will not be seen or conflict with others.
-2.	You already have a AAA server for AD which can be reused and you don’t have to worry about NTP and DNS because they have already been configured.
-3.	You already have a Full Webtop object available for use from the Portal Access lab.  
-4.	Navigate to Network Access Lists from the Network Access (VPN) menu and create a new Network Access object using the following settings:
-1.	Name: NetAcc_Mod6
-2.	Caption: Network Access
-5.	This created your new Network Access object (Similar to creating a Portal Access object.  A “container” for most of the settings, so don’t navigate away once you click Finished, you must set the remaining required settings or it will not function).  
-1.	Click on the Network Settings tab. (if a setting is not mentioned leave it at its default setting!)
-2.	Ensure Advanced settings are selected so all options are displayed.
-3.	For IPv4 Lease Pool, select the lease pool you created.  
+
+tmsh create apm resource leasepool <name> members add { 1.1.1.2-1.1.1.10 }
+
+3.	The range of IPs used should not exist anywhere else in the network because they will be assigned to users.
+
+5.	You already have a AAA server for AD which can be reused and you don’t have to worry about NTP and DNS because they have already been configured.
+6.	You already have a Full Webtop object available for use from the Portal Access lab.  
+7.	Navigate to Network Access Lists from the Network Access (VPN) menu and create a new Network Access object using the following settings:
+8.	Name: NetAcc_Mod6
+9.	Caption: Network Access
+
+tmsh create apm resource network-access <name> leasepool-name <name>
+
+11.	This created your new Network Access object (Similar to creating a Portal Access object.  A “container” for most of the settings, so don’t navigate away once you click Finished, you must set the remaining required settings or it will not function).  
+12.	Click on the Network Settings tab. (if a setting is not mentioned leave it at its default setting!)
+13.	Ensure Advanced settings are selected so all options are displayed.
+14.	For IPv4 Lease Pool, select the lease pool you created.  
 a.	Note:  Just as when creating pool resources in LTM, you can click the + symbol to create a lease pool without having to start over if you had not created the lease pool already.
 4.	It will default to “Auto Map” for SNAT Pool, which is the desired setting.
 5.	Under Client Settings, Traffic Options, select Use Split Tunneling for Traffic, and enter the subnet 10.20.4.0, with a subnet mask of 255.255.255.0. 
