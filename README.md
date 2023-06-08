@@ -11,7 +11,7 @@ The network access feature provides users with the functionality of a traditiona
 
 Use this above dependency diagram and steps below to create and review the objects required to manually configure a working Network Access configuration.  Many objects like Connectivity Profiles can be reused. 
 
-Objects in ![#f03c15](RED) `#f03c15` on the dependency diagram are only required when Data Transport Layer Security (DTLS) is enabled or the HTTP redirect option is desired.  The HTTP redirect is just a simple HTTP VS which has a system iRule redirecting users to HTTPS so users do not have to enter HTTPS in their browser to connect and can simply type an FQDN.  Objects in RED italic are not mandatory for Network Access to function, but are recommended.  Please complete them for this lab.
+Objects in RED on the dependency diagram are only required when Data Transport Layer Security (DTLS) is enabled or the HTTP redirect option is desired.  The HTTP redirect is just a simple HTTP VS which has a system iRule redirecting users to HTTPS so users do not have to enter HTTPS in their browser to connect and can simply type an FQDN.  Objects in RED italic are not mandatory for Network Access to function, but are recommended.  Please complete them for this lab.
 
 Begin in the section for Network Access in Access >> Connectivity / VPN.  All settings you configure below are selectable under the menu “Network Access (VPN)”.
 
