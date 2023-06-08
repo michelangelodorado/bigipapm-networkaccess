@@ -15,20 +15,20 @@ Objects in RED on the dependency diagram are only required when Data Transport L
 
 Begin in the section for Network Access in Access >> Connectivity / VPN.  All settings you configure below are selectable under the menu “Network Access (VPN)”.
 
-1.	Create a new IPv4 lease pool to assign to Network Access clients by selecting IPv4 Lease Pools from the Network Access (VPN) menu.  
-1.	Name your lease pool LeasePool_NetAccess
+1.	Create a new IPv4 lease pool
 
 tmsh create apm resource leasepool <name> members add { 1.1.1.2-1.1.1.10 }
-
-3.	The range of IPs used should not exist anywhere else in the network because they will be assigned to users.
-
-5.	You already have a AAA server for AD which can be reused and you don’t have to worry about NTP and DNS because they have already been configured.
-6.	You already have a Full Webtop object available for use from the Portal Access lab.  
-7.	Navigate to Network Access Lists from the Network Access (VPN) menu and create a new Network Access object using the following settings:
-8.	Name: NetAcc_Mod6
-9.	Caption: Network Access
+ 
+The range of IPs used should not exist anywhere else in the network because they will be assigned to users.
+ 
+2.	Create Network Access object
 
 tmsh create apm resource network-access <name> leasepool-name <name>
+
+5.	You already have a AAA server for AD which can be reused and you don’t have to worry about NTP and DNS because they have already been configured.
+6.	You already have a Full Webtop object available for use from the Portal Access lab.
+
+
 
 11.	This created your new Network Access object (Similar to creating a Portal Access object.  A “container” for most of the settings, so don’t navigate away once you click Finished, you must set the remaining required settings or it will not function).  
 12.	Click on the Network Settings tab. (if a setting is not mentioned leave it at its default setting!)
